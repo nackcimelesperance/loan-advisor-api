@@ -22,7 +22,7 @@ classifier=pickle.load(pickle_in)
 
 add_variable(data_train)
 
-@app.route('/predict',methods=["Get"])
+@app.route('/predict',methods=["POST"])
 def predict_note():
     
     """Let's finde the Banks Note 
