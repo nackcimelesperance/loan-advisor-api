@@ -10,28 +10,23 @@ from fastapi import FastAPI
 import numpy as np
 import pickle
 import pandas as pd
-#from processing_functions import add_variable
+from processing_functions import add_variable
 
 # 2. Create the app object
 app = FastAPI()
 
-#data_train = pd.read_csv('application_train.csv')
+data_train = pd.read_csv('application_train.csv')
 
-#import model and data treatment process
-#pickle_in = open("pipeline_bank.pkl","rb")
-#pipeline_process=pickle.load(pickle_in)
+import model and data treatment process
+pickle_in = open("pipeline_bank.pkl","rb")
+pipeline_process=pickle.load(pickle_in)
 
-#add_variable(data_train)
+add_variable(data_train)
 
-@app.route('/',methods=["GET"])
-def get_name():
-    id = request.args.get("id")
-    return {'Welcome To Krish Youtube Channel': f'{id}'}
 
-"""
 # 3. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted Bank Note with the confidence
-@app.get('/predict')
+@app.get('/predict/{id}')
 def predict_note():
 
     col_index = len(data_train.columns)
@@ -44,7 +39,7 @@ def predict_note():
 
 # 5. Run the API with uvicorn
 #    Will run on http://127.0.0.1:8000
-"""    
+  
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
 
