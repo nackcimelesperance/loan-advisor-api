@@ -10,28 +10,36 @@ from fastapi import FastAPI
 import numpy as np
 import pickle
 import pandas as pd
-from processing_functions import add_variable
+from processing_functions import add_variable, get_client
 
-# 2. Create the app object
+# 2. Create the app object /  Initialize an instance of FastAPI
 app = FastAPI()
 
 
+#pickle_in = open("pipeline_bank.pkl","rb")
+#pipeline_process=pickle.load(pickle_in)
 
-import model and data treatment process
-pickle_in = open("pipeline_bank.pkl","rb")
-pipeline_process=pickle.load(pickle_in)
+data_train = pd.read_csv('application_train.csv')
 
-add_variable(data_train)
+#add_variable(data_train)
 
-get_client(id,data_train)
-
+#get_client(id,data_train)
 @app.get('/')
-def get_name():
-    data_train = pd.read_csv('application_train.csv')
+def index():
     col_index = len(data_train.columns)
-    return {'Welcome': f'{col_index}'}
+    return {'message': col_index}
+
+@app.get('/{name}')
+def get_name(name: str):
+    return {'Welcome ': f'{name}'}
 
 """
+@app.get('/')
+def get_name():
+    col_index = len(data_train.columns)
+    return {'Welcome': len(data_train.columns)}
+
+
 # 2. Define the default route 
 @app.get("/")
 def root():
