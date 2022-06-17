@@ -25,7 +25,7 @@ add_variable(data_train)
 
 # 3. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted Bank Note with the confidence
-@app.post('/predict')
+@app.get('/predict')
 def predict_note(id):
     col_index = len(data_train.columns)
     row_index =np.where(data_train['SK_ID_CURR'] == id)
