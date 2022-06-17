@@ -23,8 +23,9 @@ app = FastAPI()
 
 #add_variable(data_train)
 
-@app.post('/{name}')
+@app.post('/')
 def get_name(name: str):
+    id = request.args.get("id")
     return {'Welcome To Krish Youtube Channel': f'{name}'}
 
 """
