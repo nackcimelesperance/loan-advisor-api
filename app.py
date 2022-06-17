@@ -15,7 +15,7 @@ from processing_functions import add_variable
 # 2. Create the app object
 app = FastAPI()
 
-data_train = pd.read_csv('application_train.csv')
+
 
 import model and data treatment process
 pickle_in = open("pipeline_bank.pkl","rb")
@@ -27,6 +27,7 @@ get_client(id,data_train)
 
 @app.get('/')
 def get_name():
+    data_train = pd.read_csv('application_train.csv')
     col_index = len(data_train.columns)
     return {'Welcome': f'{col_index}'}
 
