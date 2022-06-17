@@ -23,9 +23,10 @@ app = FastAPI()
 
 #add_variable(data_train)
 
-@app.get('/{name}')
-def get_name(name: str):
-    return {'Welcome To Krish Youtube Channel': f'{name}'}
+@app.get('/')
+def get_name():
+     id = request.args.get("id")
+    return {'Welcome To Krish Youtube Channel': f'{id}'}
 
 """
 # 3. Expose the prediction functionality, make a prediction from the passed
