@@ -25,7 +25,7 @@ add_variable(data_train)
 @app.route('/predict',methods=["POST"])
 def predict_note():
     
-    """Let's finde the Banks Note 
+    """Let's find the Banks Note 
     This is using docstrings for specifications.
     ---
     parameters:  
@@ -47,7 +47,7 @@ def predict_note():
     prediction=classifier.predict_proba(df_column_value_id)[:,1]
 
     #"The score is "+str(round(prediction, 4))+" for the client "+str(id)
-    return prediction
+    return print(prediction)
 
 
 if __name__=='__main__':
