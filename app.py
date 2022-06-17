@@ -23,13 +23,10 @@ app = FastAPI()
 
 #add_variable(data_train)
 
-@app.get('/')
-def index():
-    name = request.args.get("name", None)
+@app.get('/{name}')
+def get_name(name: str):
+    return {'Welcome To Krish Youtube Channel': f'{name}'}
 
-    # For debugging
-    print(f"Received: {name}")
-    #return {'message': name}
 """
 # 3. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted Bank Note with the confidence
