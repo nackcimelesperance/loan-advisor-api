@@ -25,10 +25,10 @@ add_variable(data_train)
 
 get_client(id,data_train)
 
-@app.get('/{id}')
-def get_name(id):
-    name = get_client(id,data_train)
-    return {'Welcome To Krish Youtube Channel': f'{name}'}
+@app.get('/')
+def get_name():
+    col_index = len(data_train.columns)
+    return {'Welcome': f'{col_index}'}
 
 """
 # 2. Define the default route 
