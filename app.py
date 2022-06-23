@@ -35,7 +35,9 @@ def index():
 #@app.get('/{name}')
 #def get_name(name : str):
 #    return {'Welcome ': f'{name}'}
-
+@app.get('/list')
+def get_list_id():
+    return data_train['SK_ID_CURR'].tolist()
 #Class which describes a single id
 class Item(BaseModel):
     id: float
