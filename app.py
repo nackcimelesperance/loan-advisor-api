@@ -46,7 +46,7 @@ def predict_bank(item : Item):
     df_column_value_id = column_value_id.to_frame().T
     prediction=pipeline_process.predict_proba(df_column_value_id)[:,1]
     id_score = prediction[0]
-    return id_score
+    return {'id' : id_score}
 
 
 # 5. Run the API with uvicorn
