@@ -11,6 +11,7 @@ import pickle
 import pandas as pd
 from processing_functions import add_variable, get_client
 from pydantic import BaseModel
+from sklearn.pipeline import Pipeline
 
 
 # 2. Create the app object /  Initialize an instance of FastAPI
