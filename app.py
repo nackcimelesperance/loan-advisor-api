@@ -9,7 +9,7 @@ from fastapi import FastAPI
 import numpy as np
 import pickle
 import pandas as pd
-from processing_functions import add_variable, get_client, prep
+from processing_functions import add_variable, get_client
 from pydantic import BaseModel
 from sklearn.pipeline import Pipeline
 
@@ -27,7 +27,8 @@ app = FastAPI()
 pickle_in_cl = open("lgbm_bank.pkl","rb")
 classifier=pickle.load(pickle_in_cl)
 
-prep()
+filename = 'features_preprocessor.sav'
+loaded_model = joblib.load(filename)
 
 #lg_pipe_final = Pipeline(steps=[
 #    ('preprocessor', features_preprocessor),  # preprocess features
