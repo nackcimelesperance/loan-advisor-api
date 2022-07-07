@@ -17,8 +17,8 @@ from pydantic import BaseModel
 app = FastAPI()
 
 #import model 
-pickle_in = open("pipeline_bank.pkl","rb")
-pipeline_process=pickle.load(pickle_in)
+#pickle_in = open("pipeline_bank.pkl","rb")
+#pipeline_process=pickle.load(pickle_in)
 
 #data_train = pd.read_csv('application_train.csv')
 
