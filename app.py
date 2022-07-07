@@ -27,8 +27,6 @@ app = FastAPI()
 pickle_in_cl = open("lgbm_bank.pkl","rb")
 classifier=pickle.load(pickle_in_cl)
 
-filename = 'features_preprocessor.sav'
-loaded_model = joblib.load(filename)
 
 #lg_pipe_final = Pipeline(steps=[
 #    ('preprocessor', features_preprocessor),  # preprocess features
