@@ -16,6 +16,7 @@ def get_client(id, data):
     df_column_value_id = column_value_id.to_frame().T
     return df_column_value_id
 
-
-pickle_in = open("features_preprocessor_pipeline.pkl","rb")
-prep2=pickle.load(pickle_in)
+def prep():
+    pickle_in = open("features_preprocessor_pipeline.pkl","rb")
+    prep2=pickle.load(pickle_in)
+    return prep2
