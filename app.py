@@ -27,10 +27,10 @@ features_preprocessor =pickle.load(pickle_in)
 pickle_in_cl = open("lgbm_bank.pkl","rb")
 classifier=pickle.load(pickle_in_cl)
 
-lg_pipe_final = Pipeline(steps=[
-    ('preprocessor', features_preprocessor),  # preprocess features
-    ('classifier', classifier)      # apply classifier
-])
+#lg_pipe_final = Pipeline(steps=[
+#    ('preprocessor', features_preprocessor),  # preprocess features
+#    ('classifier', classifier)      # apply classifier
+#])
 
 #data_train = pd.read_csv('application_train.csv')
 
