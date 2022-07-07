@@ -21,8 +21,8 @@ app = FastAPI()
 #pickle_in = open("pipeline_bank.pkl","rb")
 #pipeline_process=pickle.load(pickle_in)
 
-#pickle_in = open("features_preprocessor_pipeline.pkl","rb")
-#features_preprocessor =pickle.load(pickle_in)
+pickle_in = open("features_preprocessor_pipeline.pkl","rb")
+features_preprocessor =pickle.load(pickle_in)
 
 pickle_in_cl = open("lgbm_bank.pkl","rb")
 classifier=pickle.load(pickle_in_cl)
