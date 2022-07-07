@@ -17,8 +17,19 @@ from pydantic import BaseModel
 app = FastAPI()
 
 #import model 
-pickle_in = open("pipeline_bank.pkl","rb")
-pipeline_process=pickle.load(pickle_in)
+#pickle_in = open("pipeline_bank.pkl","rb")
+#pipeline_process=pickle.load(pickle_in)
+
+pickle_in = open("features_preprocessor_pipeline.pkl","rb")
+features_preprocessor =pickle.load(pickle_in)
+
+pickle_in_cl = open("lgbm_bank.pkl","rb")
+classifier=pickle.load(pickle_in_cl)
+
+lg_pipe_final = Pipeline(steps=[
+    ('preprocessor', features_preprocessor),  # preprocess features
+    ('classifier', classifier)      # apply classifier
+])
 
 #data_train = pd.read_csv('application_train.csv')
 
