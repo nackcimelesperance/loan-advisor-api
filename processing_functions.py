@@ -1,4 +1,4 @@
-
+import pickle
 
 def add_variable(data):
     data['DAYS_EMPLOYED_PERC'] = data.loc[:,'DAYS_EMPLOYED'] / data.loc[:,'DAYS_BIRTH']
@@ -15,3 +15,7 @@ def get_client(id, data):
     column_value_id = data.iloc[row_index[0][0], 1:col_index]
     df_column_value_id = column_value_id.to_frame().T
     return df_column_value_id
+
+
+pickle_in = open("features_preprocessor_pipeline.pkl","rb")
+prep2=pickle.load(pickle_in)
