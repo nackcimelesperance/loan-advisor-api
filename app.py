@@ -37,6 +37,11 @@ def get_list_id():
 #Class which describes a single id
 class Item(BaseModel):
     id: int
+@app.get('/client')
+def get_client(item : Item):
+    data = item.dict()
+    X = data_train[data_train['SK_ID_CURR'] == data['id']]
+    return {'gender': X['CODE_GENDER'].values[0], 'credit': X['AMT_CREDIT'].values[0], 'income_tot': X['AMT_INCOME_TOTAL'].values[0], 'income_per': X['INCOME_PER_PERSON'].values[0]}
 
 @app.post('/predict')
 def predict_bank(item : Item):
