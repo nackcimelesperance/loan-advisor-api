@@ -12,6 +12,7 @@ import pickle
 import pandas as pd
 from processing_functions import add_variable, get_client
 from pydantic import BaseModel
+import json
 
 
 # 2. Create the app object /  Initialize an instance of FastAPI
@@ -52,6 +53,15 @@ def predict_bank(item : Item):
     prediction=pipeline_process.predict_proba(df_column_value_id)[:,1]
     id_score = prediction[0]
     return id_score
+
+@app.post('/importance')
+def client_featureImportance(item : Item):
+    data = item.dict()
+
+    X = data_train[data_train['SK_ID_CURR'] == data['id']]
+    X = X.drop(['TARGET','SK_ID_CURR'], axis=1)
+    
+    return X.to_json()
 
 
 # 5. Run the API with uvicorn
