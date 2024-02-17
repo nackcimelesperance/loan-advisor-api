@@ -10,7 +10,7 @@ pickleshare==0.7.5
 streamlit==1.30.0
 lightgbm==3.3.2
 scikit-learn==1.0.2
-fastapi==0.78.0
+fastapi==0.109.1
 uvicorn==0.17.6
 imbalanced-learn==0.7.0
 requests==2.31.0
